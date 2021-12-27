@@ -1,6 +1,5 @@
-package com.sangnguyen.cryptocurrencyapp.ui.theme
+package com.sangnguyen.cryptocurrencyapp.presentation.ui.theme
 
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.darkColors
 import androidx.compose.material.lightColors
