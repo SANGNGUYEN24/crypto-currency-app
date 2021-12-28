@@ -1,6 +1,4 @@
-package com.sangnguyen.cryptocurrencyapp.domain.model
-
-import com.google.gson.annotations.SerializedName
+package com.sangnguyen.cryptocurrencyapp.data.repository.model
 
 data class Coin (
     val id: String,

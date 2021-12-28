@@ -1,10 +1,8 @@
 package com.sangnguyen.cryptocurrencyapp.domain.use_case.get_coin
 
 import com.sangnguyen.cryptocurrencyapp.common.Resource
-import com.sangnguyen.cryptocurrencyapp.data.remote.data_transfer_object.toCoin
 import com.sangnguyen.cryptocurrencyapp.data.remote.data_transfer_object.toCoinDetail
-import com.sangnguyen.cryptocurrencyapp.domain.model.Coin
-import com.sangnguyen.cryptocurrencyapp.domain.model.CoinDetail
+import com.sangnguyen.cryptocurrencyapp.data.repository.model.CoinDetail
 import com.sangnguyen.cryptocurrencyapp.domain.repository.CoinRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow

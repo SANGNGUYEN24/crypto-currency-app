@@ -19,14 +19,16 @@ object AppModule {
     @Provides
     @Singleton
     fun providePaprikaApi(): CoinPaprikaApi {
-        return Retrofit.Builder().baseUrl(Constants.BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create()).build()
+        return Retrofit.Builder()
+            .baseUrl(Constants.BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
             .create(CoinPaprikaApi::class.java)
     }
 
     @Provides
     @Singleton
-    fun provideCoinRepository(api: CoinPaprikaApi) : CoinRepository {
+    fun provideCoinRepository(api: CoinPaprikaApi): CoinRepository {
         return CoinRepositoryImpl(api)
     }
 }

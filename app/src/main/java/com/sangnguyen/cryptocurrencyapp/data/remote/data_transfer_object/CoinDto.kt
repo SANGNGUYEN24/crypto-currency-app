@@ -1,19 +1,20 @@
 package com.sangnguyen.cryptocurrencyapp.data.remote.data_transfer_object
 
 import com.google.gson.annotations.SerializedName
-import com.sangnguyen.cryptocurrencyapp.domain.model.Coin
+import com.sangnguyen.cryptocurrencyapp.data.repository.model.Coin
 
 data class CoinDto(
     val id: String,
-    @SerializedName(value = "is_active")
+    @SerializedName("is_active")
     val isActive: Boolean,
-    @SerializedName(value = "is_new")
+    @SerializedName("is_new")
     val isNew: Boolean,
     val name: String,
     val rank: Int,
     val symbol: String,
     val type: String
 )
+
 fun CoinDto.toCoin(): Coin {
     return Coin(
         id = id,

@@ -1,4 +1,4 @@
-package com.sangnguyen.cryptocurrencyapp.domain.model
+package com.sangnguyen.cryptocurrencyapp.data.repository.model
 
 import com.sangnguyen.cryptocurrencyapp.data.remote.data_transfer_object.TeamMember
 
