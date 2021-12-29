@@ -16,9 +16,7 @@ import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.navigation.NavController
 import com.google.accompanist.flowlayout.FlowRow
-import com.sangnguyen.cryptocurrencyapp.presentation.Screen
 import com.sangnguyen.cryptocurrencyapp.presentation.coin_detail.components.CoinTag
 import com.sangnguyen.cryptocurrencyapp.presentation.coin_detail.components.TeamListItem
 
@@ -31,7 +29,7 @@ fun CoinDetailScreen(
         state.coin?.let { coin ->
             LazyColumn(
                 modifier = Modifier.fillMaxSize(),
-                contentPadding = PaddingValues(all = 24.dp)
+                contentPadding = PaddingValues(all = 24.dp),
             ) {
                 item {
                     // Coin description
@@ -40,24 +38,69 @@ fun CoinDetailScreen(
                         horizontalArrangement = Arrangement.SpaceBetween
                     ) {
                         Text(
-                            text = "${coin.rank}. ${coin.name} (${coin.symbol})",
+                            text = "${coin.rank}. ",
                             style = MaterialTheme.typography.h2,
-                            modifier = Modifier.weight(8f)
                         )
+                        Column(modifier = Modifier.weight(8f)) {
+                            Text(
+                                text = "${coin.name} (${coin.symbol})",
+                                style = MaterialTheme.typography.h2,
+                            )
+                            Text(
+                                style = MaterialTheme.typography.subtitle2,
+                                text = coin.coinId
+                            )
+
+                        }
                         Text(
                             text = if (coin.isActive) "active" else "inactive",
                             color = if (coin.isActive) Color.Green else Color.Red,
                             fontStyle = FontStyle.Italic,
+                            maxLines = 1,
                             textAlign = TextAlign.End,
                             modifier = Modifier
                                 .align(CenterVertically)
                                 .weight(2f)
                         )
+
                     }
                     Spacer(modifier = Modifier.height(16.dp))
                     Text(
                         text = coin.description,
-                        style = MaterialTheme.typography.body2,
+                        style = MaterialTheme.typography.body1,
+                    )
+                    Spacer(modifier = Modifier.height(16.dp))
+                    // Started at
+                    Text(
+                        text = "Started at",
+                        style = MaterialTheme.typography.h3,
+                    )
+                    Spacer(modifier = Modifier.height(16.dp))
+                    Text(
+                        text = coin.startedAt,
+                        style = MaterialTheme.typography.body1,
+                    )
+                    Spacer(modifier = Modifier.height(16.dp))
+                    // First data at
+                    Text(
+                        text = "First data at",
+                        style = MaterialTheme.typography.h3,
+                    )
+                    Spacer(modifier = Modifier.height(16.dp))
+                    Text(
+                        text = coin.firstDataAt,
+                        style = MaterialTheme.typography.body1,
+                    )
+                    Spacer(modifier = Modifier.height(16.dp))
+                    // First data at
+                    Text(
+                        text = "Last data at",
+                        style = MaterialTheme.typography.h3,
+                    )
+                    Spacer(modifier = Modifier.height(16.dp))
+                    Text(
+                        text = coin.lastDataAt,
+                        style = MaterialTheme.typography.body1,
                     )
                     Spacer(modifier = Modifier.height(16.dp))
                     // Coin tags
@@ -81,7 +124,6 @@ fun CoinDetailScreen(
                         text = "Team members",
                         style = MaterialTheme.typography.h3,
                     )
-                    Spacer(modifier = Modifier.height(16.dp))
                 }
                 items(coin.team) { teamMember ->
                     TeamListItem(
@@ -92,6 +134,7 @@ fun CoinDetailScreen(
                     )
                     Divider()
                 }
+
             }
         }
 
@@ -109,6 +152,5 @@ fun CoinDetailScreen(
         if (state.isLoading) {
             CircularProgressIndicator(modifier = Modifier.align(Alignment.Center))
         }
-
     }
 }

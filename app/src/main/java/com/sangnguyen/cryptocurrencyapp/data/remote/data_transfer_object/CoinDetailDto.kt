@@ -49,6 +49,9 @@ fun CoinDetailDto.toCoinDetail(): CoinDetail {
         rank = rank,
         isActive = isActive,
         tags = tags.map { it.name },
-        team = team
+        team = team,
+        startedAt = startedAt,
+        firstDataAt = firstDataAt,
+        lastDataAt = lastDataAt
     )
 }

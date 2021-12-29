@@ -3,7 +3,7 @@ package com.sangnguyen.cryptocurrencyapp.dependency_injection
 import com.sangnguyen.cryptocurrencyapp.common.Constants
 import com.sangnguyen.cryptocurrencyapp.data.remote.CoinPaprikaApi
 import com.sangnguyen.cryptocurrencyapp.data.repository.CoinRepositoryImpl
-import com.sangnguyen.cryptocurrencyapp.domain.repository.CoinRepository
+import com.sangnguyen.cryptocurrencyapp.domain.repository.CoinRepositoryInterface
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -28,7 +28,7 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideCoinRepository(api: CoinPaprikaApi): CoinRepository {
+    fun provideCoinRepository(api: CoinPaprikaApi): CoinRepositoryInterface {
         return CoinRepositoryImpl(api)
     }
 }

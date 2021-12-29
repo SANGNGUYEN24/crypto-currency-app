@@ -20,7 +20,7 @@ import com.sangnguyen.cryptocurrencyapp.presentation.Screen
 import com.sangnguyen.cryptocurrencyapp.presentation.coin_list.components.CoinListItem
 
 @Composable
-fun CoinListScreen(
+    fun CoinListScreen(
     navController: NavController,
     viewModel: CoinListViewModel = hiltViewModel()
 ) {
